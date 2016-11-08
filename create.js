@@ -11,7 +11,8 @@ module.exports = function(RED) {
       var client = new elasticsearch.Client({
           hosts: node.server.host.split(' '),
           timeout: node.server.timeout,
-          requestTimeout: node.server.reqtimeout
+          requestTimeout: node.server.reqtimeout,
+          keepAlive: false
       });
       var documentIndex = config.documentIndex;
       var documentType = config.documentType;
@@ -39,6 +40,7 @@ module.exports = function(RED) {
         node.error(err);
       });
 
+	  client.close();
     });
   }
   RED.nodes.registerType("es-create",Create);
