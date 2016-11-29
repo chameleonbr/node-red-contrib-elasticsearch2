@@ -9,7 +9,8 @@
           sort: {value: ''},
           includeFields: {value: ''},
           maxResults: {value: 10, required: true, validate: RED.validators.number()},
-          server: {value:"", type:"remote-server"}
+		  fromResults: {value: 0, required: true, validate: RED.validators.number()},
+          server: {value:"", type:"remote-server"}		  
         },
         color:'#C0DEED',
         paletteLabel: "search",
@@ -38,6 +39,10 @@
     <div class="form-row">
         <label for="node-input-maxResults"><i class="fa fa-bars"></i> Max Results</label>
         <input type="text" id="node-input-maxResults" placeholder="10" />
+    </div>
+	<div class="form-row">
+        <label for="node-input-fromResults"><i class="fa fa-bars"></i> From</label>
+        <input type="text" id="node-input-fromResults" placeholder="Starting offset (default: 0)" />
     </div>
     <div class="form-row">
         <label for="node-input-sort"><i class="fa fa-sort"></i> Sort</label>
