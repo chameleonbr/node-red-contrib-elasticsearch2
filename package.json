@@ -1,13 +1,13 @@
 {
     "name": "node-red-contrib-elasticsearch3",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "A set of Node-RED nodes for Elasticsearch including search, get, exists, create, update and delete.A Fork from @jeffdonthemic node-red-contrib-elasticsearch-jd",
     "author": {
-        "name": "Andre Alexandre Avila"
+        "name": "Alexandre Avila"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/chameleonbr/node-red-contrib-elasticsearch3.git"
+        "url": "https://github.com/ElasticSearchCLITools/node-red-contrib-elasticsearch7"
     },
     "keywords": [
         "node-red",
@@ -16,6 +16,7 @@
     "node-red": {
         "nodes": {
             "search": "search.js",
+            "aggregations": "aggregations.js",
             "create": "create.js",
             "exists": "exists.js",
             "update": "update.js",
@@ -30,8 +31,8 @@
     },
     "maintainers": [
         {
-            "name": "chameleonbr",
-            "email": "chameleonbr@gmail.com"
+            "name": "Edward Perry",
+            "email": "edwardperry1@gmail.com"
         }
     ]
 }

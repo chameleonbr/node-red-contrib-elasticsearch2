@@ -2,7 +2,7 @@ module.exports = function (RED) {
 
     var elasticsearch = require('elasticsearch');
 
-    function Search(config) {
+    function Aggregations(config) {
         RED.nodes.createNode(this, config);
         this.server = RED.nodes.getNode(config.server);
         var node = this;
@@ -48,7 +48,7 @@ module.exports = function (RED) {
             var params = {
                 size: maxResults,
                 sort: sort,
-                _source_includes: includeFields
+                _sourceInclude: includeFields
             };
             if (documentIndex !== '')
                 params.index = documentIndex;
@@ -68,9 +68,8 @@ module.exports = function (RED) {
                     }
                 };
             }
-            
             client.search(params).then(function (resp) {
-                msg.payload = resp.hits;
+                msg.payload = resp;
                 node.send(msg);
             }, function (err) {
                 node.error(err);
@@ -78,5 +77,5 @@ module.exports = function (RED) {
 
         });
     }
-    RED.nodes.registerType("es-search", Search);
+    RED.nodes.registerType("es-aggregations", Aggregations);
 };

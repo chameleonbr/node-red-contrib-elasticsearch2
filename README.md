@@ -1,17 +1,12 @@
-# node-red-contrib-elasticsearch3
+# node-red-contrib-elasticsearch7
 
+A Fork from @chameleonbr   node-red-contrib-elasticsearch3   which is
 A Fork from @jeffdonthemic node-red-contrib-elasticsearch-jd
 
-## Changelog
+## Changelog 0.0.7
 
-* Now module is working :-D
-* Supports multiple server separated by spaces and with port(Example http://localhost:9200)
-* Search now appear Config server
-* Search now support msg.body with entire request body
+* new Aggregation Node which puts the entire ES Response in payload  msg.payload = { <es response> }  
 
-Special thanks to @jeffdonthemic, and their good work, less than 30 minutes is needed to make the module works.
-
-...And of course thanking the @knolleary by the great nodered project.
 
 A set of [Node-RED](http://www.nodered.org) nodes for Elasticsearch including search, get, exists, create, update and delete.
 
@@ -59,6 +54,11 @@ npm install node-red-contrib-elasticsearch3
 <p>The index, type, query, includeFields, sort and max results returned can be configured in the node, however if left blank, the following should be set in an incoming message:<ul><li><code>msg.documentIndex</code> - the index to use</li><li><code>msg.documentType</code> - the type to use</li><li><code>msg.query</code> - the query string to use</li><li><code>msg.body</code> - Full body JSON to send, overwrites query</li><li><code>msg.includeFields</code> - A comma separated list of fields to extract and return from the _source field. If left blank, returns all fields.</li><li><code>msg.sort</code> - the direction to sort the results. Enter a comma-separated list of field:direction pairs. Leave blank to sort by score.</li><li><code>msg.maxResults</code> - the maximum number of results to be returned from the query. Default is 10.</li></ul></p>
 <p>See the <a href="https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/api-reference.html#api-search">Elasticsearch documentation</a> for more information.</p>
 
+### Search
+
+<p>Aggrgation Search with a simple query string query.</p>
+<p>The index, type, query, includeFields, sort and max results returned can be configured in the node, however if left blank, the following should be set in an incoming message:<ul><li><code>msg.documentIndex</code> - the index to use</li><li><code>msg.documentType</code> - the type to use</li><li><code>msg.query</code> - the query string to use</li><li><code>msg.body</code> - Full body JSON to send, overwrites query</li><li><code>msg.includeFields</code> - A comma separated list of fields to extract and return from the _source field. If left blank, returns all fields.</li><li><code>msg.sort</code> - the direction to sort the results. Enter a comma-separated list of field:direction pairs. Leave blank to sort by score.</li><li><code>msg.maxResults</code> - the maximum number of results to be returned from the query. Default is 10.</li></ul></p>
+<p>See the <a href="https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/api-reference.html#api-search">Elasticsearch documentation</a> for more information.</p>
 ### Update
 
 <p>Update parts of a document.</p>
